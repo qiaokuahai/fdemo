@@ -4,7 +4,6 @@ import inspect
 
 
 def import_sub_module():
-    # 引入当前模块下的所有model
     import_info = util.import_submodules("app.fapi", recursive=True)
     return import_info
 
