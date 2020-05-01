@@ -1,12 +1,25 @@
+import gevent.monkey
 import multiprocessing
 
+gevent.monkey.patch_all()
+
+# 监听本机的5000端口
 bind = '0.0.0.0:5000'
+
+preload_app = True
+
 # 开启进程
 workers = 1
 # workers = multiprocessing.cpu_count() * 2 + 1
 
 # 每个进程的开启线程
 threads = multiprocessing.cpu_count() * 5
+
+backlog = 2048
+
+# 工作模式为gevent
+worker_class = "gevent"
+
 # debug=True
 # 如果不使用supervisord之类的进程管理工具需要设置为守护进程，否则会出问题
 daemon = True
@@ -15,8 +28,9 @@ daemon = True
 proc_name = 'gunicorn.pid'
 
 # 进程pid记录文件
-pidfile = '/var/log/gunicorn/app_pid.log'
+pidfile = 'app_pid.log'
+
 loglevel = 'debug'
-logfile = '/var/log/gunicorn/debug.log'
-accesslog = '/var/log/gunicorn/access.log'
+logfile = 'debug.log'
+accesslog = 'access.log'
 access_log_format = '%(h)s %(t)s %(U)s %(q)s'

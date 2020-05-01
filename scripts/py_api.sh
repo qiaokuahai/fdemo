@@ -21,5 +21,5 @@ if [ $1 = "start" ];then
 elif [ $1 = "stop" ];then
     stop
 else
-    echo "input param does exists!"
+    echo "input param does not exists!"
 fi
