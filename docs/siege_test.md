@@ -101,9 +101,10 @@ siege -c 2000 -r 10 -b http://122.51.83.195:5000/job/job_status
 ```
 
 ### 测试数据量小的接口, 模拟1000个用户
+
 ```
 ？？？？？？？为什么使用gevent并没有带来性能上的提升？？？？？？？
-
+siege -c 1000 -r 10 -b http://122.51.83.195:5000/job/job_status
 使用python main.py的方式
 {	"transactions":			        9997,
 	"availability":			       99.97,
