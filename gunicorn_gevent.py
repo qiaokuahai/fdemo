@@ -6,14 +6,14 @@ gevent.monkey.patch_all()
 bind = '0.0.0.0:5000'
 
 # 开启进程
-workers = 1
-# workers = multiprocessing.cpu_count()
+workers = 3
+# workers = multiprocessing.cpu_count()*2 + 1
 
-# 每个进程的开启线程
-threads = 5
 
 # 工作模式为gevent
 worker_class = "gevent"
+
+work_connections = 5000
 
 # debug=True
 # 如果不使用supervisord之类的进程管理工具需要设置为守护进程，否则会出问题
