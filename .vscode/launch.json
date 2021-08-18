@@ -11,6 +11,18 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}"  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+         },
+         {
+            "name": "run_neutron",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+            "args": [                 // 添加执行参数
+                "name",
+                "gender"
+            ]
          }
     ]
 }
