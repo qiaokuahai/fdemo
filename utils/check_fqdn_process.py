@@ -11,7 +11,6 @@ from multiprocessing import Process
 from pandas import DataFrame
 
 
-
 def to_dig(fqdns, df_ldns, lifetime=2.0, out_file_name=None):
     resolver = dns.resolver.Resolver()
     ldns_lst = df_ldns["ip_address"].values
@@ -25,7 +24,7 @@ def to_dig(fqdns, df_ldns, lifetime=2.0, out_file_name=None):
                 res1 = resolver.query(fqdn, lifetime=lifetime)
             except Exception as e:
                 df_ldns.loc[ldns, "status"] = str(e)
-                print(e)
+                print(e) 
             else:
                 ans = res1.response.answer
                 ip_list = [str(x) for x in ans[-1].items.keys()]
