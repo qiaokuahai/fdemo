@@ -10,7 +10,33 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${fileDirname}"  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+            "cwd": "${fileDirname}",  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+            // "gevent": true
+         },
+         {
+            "name": "run boardcast",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+            "args": [
+                "/root/fqdn.xlsx",
+                "/root/ldns.xlsx",
+                "1"
+            ]
+         },
+         {
+            "name": "run check_dns",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",  // 设置相对路径，在debug时可以切换到当前文件所在的目录
+            "args": [
+                "/root/workspace/fdemo/utils/result_boardcast_2021-11-12_14:12:10.csv",
+                "/root/workspace/fdemo/utils/result_boardcast_2021-11-12_14:26:54.csv"
+            ]
          },
          {
             "name": "run_neutron",
